@@ -1,0 +1,132 @@
+body {
+    background: #cfd0cf;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    margin: 40px auto;
+    font-size: 42px;
+    line-height: 47px;
+    color: #434344;
+}
+
+.cards {
+    margin: auto;
+    perspective: 600px;
+    display: grid;
+    grid-template-columns: repeat(4, 130px);
+    grid-template-rows: repeat(3, 130px);
+    grid-gap: 25px;
+    width: 595px
+}
+
+.card {
+    border-radius: 9px;
+    cursor: pointer;
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-right: 25px;
+}
+.card:last-of-type { margin-right: 0 }
+
+.card__side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 5px solid white;
+    border-radius: 9px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s, opacity 0.5s;
+    backface-visibility: hidden;
+}
+
+.card__side_front {
+    background: linear-gradient(to right top, #22ab93, #19668d);
+}
+
+.card__side_back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    background: white;
+    transform: rotateY(-180deg);
+}
+
+.card_opened .card__side_front {
+    opacity: 0;
+    transform: rotateY(180deg);
+}
+
+.card_opened  .card__side_back {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.card_opened_wrong { background: #f44336; border-color: #f44336; }
+.card_opened_right { background: #5ad66f; border-color: #5ad66f; }
+
+.timer {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    margin-top: 30px;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 36px;
+    color: #434344;
+    display: none;
+}
+
+.modal-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    display: none;
+}
+
+.modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 350px;
+    padding: 30px;
+    background: white;
+
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.modal-header {
+    margin-bottom: 40px;
+    font-size: 48px;
+    color: #434344;
+    font-weight: bold;
+}
+
+.play-again-btn {
+    display: inline-flex;
+    font-size: 20px;
+    height: 40px;
+    padding: 0 30px;
+    background: linear-gradient(to left, #22ab93, #19668d);
+    color: white;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    border-radius: 8px;
+}
+
+.play-again-btn:hover {
+    cursor: pointer;
+}
+
+.play-again-btn:active {
+    box-shadow: -2px -1px 8px rgba(0, 0, 0, 0.5);
+}
